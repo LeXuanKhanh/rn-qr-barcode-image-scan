@@ -21,6 +21,11 @@ runs:
           ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
           ${{ runner.os }}-yarn-
 
+    - name: Change yarn version
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: yarn set version 3.6.4
+      shell: bash
+
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install

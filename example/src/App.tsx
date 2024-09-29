@@ -1,18 +1,13 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import { multiply, scanFromPath } from 'rn-qr-barcode-image-scan';
+import { scanFromPath } from 'rn-qr-barcode-image-scan';
 import {
   launchImageLibrary,
   type ImageLibraryOptions,
 } from 'react-native-image-picker';
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
   const [qrCodes, setQrCodes] = useState<string[]>([]);
-
-  useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
 
   const onPress = useCallback(async () => {
     const option: ImageLibraryOptions = {

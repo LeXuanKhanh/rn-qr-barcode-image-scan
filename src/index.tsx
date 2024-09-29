@@ -17,10 +17,6 @@ const RnQrBarcodeImageScan = NativeModules.RnQrBarcodeImageScan
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return RnQrBarcodeImageScan.multiply(a, b);
-}
-
 export function scanFromPath(path: string): Promise<string[]> {
   return RnQrBarcodeImageScan.scanFromPath(path);
 }

@@ -2,11 +2,6 @@ import Vision
 
 @objc(RnQrBarcodeImageScan)
 class RnQrBarcodeImageScan: NSObject {
-
-  @objc(multiply:withB:withResolver:withRejecter:)
-  func multiply(a: Float, b: Float, resolve:RCTPromiseResolveBlock,reject:RCTPromiseRejectBlock) -> Void {
-    resolve(a*b)
-  }
     
   @objc(scanFromPath:withResolver:withRejecter:)
   func scanFromPath(path: String, resolve:@escaping RCTPromiseResolveBlock,reject:@escaping RCTPromiseRejectBlock) -> Void {

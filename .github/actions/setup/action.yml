@@ -22,7 +22,7 @@ runs:
           ${{ runner.os }}-yarn-
 
     - name: Change yarn version
-      run: yarn set version
+      run: yarn set version 3.6.1
       shell: bash
 
     - name: Install dependencies

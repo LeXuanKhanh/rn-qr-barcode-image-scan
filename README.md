@@ -8,17 +8,34 @@ react native library for scanning qrcode/barcode from image
 npm install rn-qr-barcode-image-scan
 ```
 
+or
+
+```sh
+yarn add rn-qr-barcode-image-scan
+```
+
 ## Usage
 
-
 ```js
-import { multiply } from 'rn-qr-barcode-image-scan';
+import { scanFromPath } from 'rn-qr-barcode-image-scan';
+import {
+  launchImageLibrary,
+  type ImageLibraryOptions,
+} from 'react-native-image-picker';
 
 // ...
 
-const result = await multiply(3, 7);
+const option: ImageLibraryOptions = {
+  mediaType: 'photo',
+};
+const result = await launchImageLibrary(option);
+const uri = result?.assets?.[0]?.uri;
+if (!uri) {
+  return;
+}
+//codes: string[]
+const codes = await scanFromPath(uri);
 ```
-
 
 ## Contributing
 
